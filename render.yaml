@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ivas-sms-api
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: XSRF_TOKEN
+        sync: false
+      - key: IVAS_SESSION
+        sync: false
+    healthCheckPath: /health
+    autoDeploy: true
